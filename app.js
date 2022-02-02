@@ -6,7 +6,10 @@ const PORT = config.get("port")
 
 async function start() {
     try {
-       await mongoose.connect(config.get('mongoURL'))
+        await mongoose.connect(config.get('mongoURL'), {
+
+        })
+        app.listen(PORT, () => console.log(`App has been started on port ${PORT}`))
     } catch (e) {
         console.log("Server error", e.message)
         process.exit(1)
@@ -14,4 +17,4 @@ async function start() {
 }
 
 start()
-app.listen(PORT, () => console.log(`App has been started on port ${PORT}`))
+
